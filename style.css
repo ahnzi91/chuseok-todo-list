@@ -50,3 +50,13 @@ body {
   justify-content: space-between;
   padding: 1em;
 }
+
+.task button {
+  background-color: white;
+  border: 0;
+  margin-left: 40px;
+}
+
+.task-done {
+  text-decoration: line-through;
+}
