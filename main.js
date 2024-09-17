@@ -36,7 +36,7 @@ function render() {
           <div class="task-done">${taskList[i].taskContent}</div>
           <div>
             <button type="button" onclick="toggleComplete('${taskList[i].id}')"><i class="fas fa-redo"></i></button>
-            <button type="button"><i class="fas fa-trash-alt text-danger"></i></button>
+            <button type="button" onclick="deleteTask('${taskList[i].id}')"><i class="fas fa-trash-alt text-danger"></i></button>
           </div>
         </div>
       `;
@@ -46,7 +46,7 @@ function render() {
           <div>${taskList[i].taskContent}</div>
           <div>
             <button type="button" onclick="toggleComplete('${taskList[i].id}')"><i class="fas fa-check text-success"></i></button>
-            <button type="button"><i class="fas fa-trash-alt text-danger"></i></button>
+            <button type="button" onclick="deleteTask('${taskList[i].id}')"><i class="fas fa-trash-alt text-danger"></i></button>
           </div>
         </div>
       `;
@@ -66,7 +66,22 @@ function toggleComplete(id) {
   render();
 }
 
+function deleteTask(id) {
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i].id === id) {
+      taskList.splice(i, 1);
+      break;
+    }
+  }
+  // taskList.forEach((item, index) => {
+  //   if (item.id === id) {
+  //     taskList.splice(index, 1);
+  //     return;
+  //   }
+  // });
+  render();
+}
+
 function randomIDGenerate() {
   return "_" + Math.random().toString(36).substr(2, 9);
 }
-// <i class="fas fa-redo"></i>
